@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <link rel="stylesheet" href="/static/bootstrap.min.css">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Min/Max Workout Generator!</title>
+      <style>
+          .big-space-top { margin-top: 100px; }
+          .big-space-bottom { margin-bottom: 100px; }
+      </style>
+  </head>
+  <body>
+      <div class="container">
+          <div class="row">
+              <div class="col text-center mt-5 big-space-bottom">
+                  <h2>Do you wanna get JACKED and SWOLE with minimal effort in the gym? Look no further, the MIN/MAX WORKOUT GENERATOR is made for YOU!</h2>
+              </div>
+          </div>
+
+          <div class="row justify-content-center big-space-top">
+              <div class="col-md-8">
+                  <form method="POST" action="/generate-workout">
+                      <div class="row mb-5 pb-4 justify-content-center">
+                          <div class="col-md-3 text-center mx-3">
+                              <label for="days_per_week" class="form-label"><strong>How many days per week?</strong></label>
+                              <select name="days_per_week" id="days_per_week" class="form-select">
+                                  <option value="">Choose days...</option>
+                                  <option value="1">1 day</option>
+                                  <option value="2">2 days</option>
+                                  <option value="3">3 days</option>
+                                  <option value="4">4 days</option>
+                                  <option value="5">5 days</option>
+                              </select>
+                          </div>
+
+                          <div class="col-md-3 text-center mx-3">
+                              <label for="muscle_focus" class="form-label"><strong>Which muscle group to focus on?</strong></label>
+                              <select name="muscle_focus" id="muscle_focus" class="form-select">
+                                  <option value="">Choose focus...</option>
+                                  <option value="chest">Chest</option>
+                                  <option value="back">Back</option>
+                                  <option value="legs">Legs</option>
+                                  <option value="full_body">Full Body</option>
+                              </select>
+                          </div>
+
+                          <div class="col-md-3 text-center mx-3">
+                              <label for="gym_access" class="form-label"><strong>Do you have gym access?</strong></label>
+                              <select name="gym_access" id="gym_access" class="form-select">
+                                  <option value="">Choose...</option>
+                                  <option value="yes">Yes, I have gym access</option>
+                                  <option value="no">No, home workouts only</option>
+                              </select>
+                          </div>
+                      </div>
+
+                      <div class="text-center big-space-top">
+                          <button type="submit" class="btn btn-primary btn-lg">GENERATE MY WORKOUT!</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </body>
+  </html>
