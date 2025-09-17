@@ -1,1 +1,0 @@
-This is a Workout-program-generator, designed to min/max your workouts.
