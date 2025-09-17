@@ -19,10 +19,10 @@
           </div>
 
           <div class="row justify-content-center big-space-top">
-              <div class="col-md-8">
+              <div class="col-lg-8 col-md-10 col-12">
                   <form method="POST" action="/generate-workout">
                       <div class="row mb-5 pb-4 justify-content-center">
-                          <div class="col-md-3 text-center mx-3">
+                          <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
                               <label for="days_per_week" class="form-label"><strong>How many days per week?</strong></label>
                               <select name="days_per_week" id="days_per_week" class="form-select">
                                   <option value="">Choose days...</option>
@@ -32,7 +32,7 @@
                               </select>
                           </div>
 
-                          <div class="col-md-3 text-center mx-3">
+                          <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
                               <label for="muscle_focus" class="form-label"><strong>Which muscle group to focus on?</strong></label>
                               <select name="muscle_focus" id="muscle_focus" class="form-select">
                                   <option value="">Choose focus...</option>
@@ -43,7 +43,7 @@
                               </select>
                           </div>
 
-                          <div class="col-md-3 text-center mx-3">
+                          <div class="col-lg-3 col-md-4 col-12 mb-3 text-center">
                               <label for="gym_access" class="form-label"><strong>Do you have gym access?</strong></label>
                               <select name="gym_access" id="gym_access" class="form-select">
                                   <option value="">Choose...</option>
@@ -62,7 +62,7 @@
 
           {% if workout %}
           <div class="row justify-content-center mt-5">
-              <div class="col-md-10">
+              <div class="col-12">
                   <h3 class="text-center mb-4">Your {{ days_per_week }} Day Workout Plan</h3>
                   
                   {% for day_key, exercises in workout.items() %}
@@ -72,12 +72,13 @@
                           <table class="table table-striped table-hover align-middle">
                               <thead class="table-dark">
                                   <tr>
-                                      <th scope="col" style="width: 25%;">Exercise</th>
+                                      <th scope="col" class="d-none d-md-table-cell" style="width: 25%;">Exercise</th>
+                                      <th scope="col" class="d-md-none">Exercise</th>
                                       <th scope="col" style="width: 10%;" class="text-center">Sets</th>
                                       <th scope="col" style="width: 10%;" class="text-center">Reps</th>
-                                      <th scope="col" style="width: 20%;" class="text-center">Target Muscles</th>
-                                      <th scope="col" style="width: 20%;" class="text-center">Equipment</th>
-                                      <th scope="col" style="width: 15%;" class="text-center">Location</th>
+                                      <th scope="col" style="width: 20%;" class="text-center d-none d-md-table-cell">Target Muscles</th>
+                                      <th scope="col" style="width: 20%;" class="text-center d-none d-lg-table-cell">Equipment</th>
+                                      <th scope="col" style="width: 15%;" class="text-center d-none d-md-table-cell">Location</th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -94,9 +95,9 @@
                                               {{ '5-8' if exercise.gym_required else '8-15' }}
                                           </span>
                                       </td>
-                                      <td class="text-center">{{ exercise.target_muscles | join(', ') | title }}</td>
-                                      <td class="text-center">{{ exercise.equipments | join(', ') | title }}</td>
-                                      <td class="text-center">
+                                      <td class="text-center d-none d-md-table-cell">{{ exercise.target_muscles | join(', ') | title }}</td>
+                                      <td class="text-center d-none d-lg-table-cell">{{ exercise.equipments | join(', ') | title }}</td>
+                                      <td class="text-center d-none d-md-table-cell">
                                           <span class="badge bg-{{ 'success' if exercise.gym_required else 'primary' }}">
                                               {{ 'Gym' if exercise.gym_required else 'Home' }}
                                           </span>
